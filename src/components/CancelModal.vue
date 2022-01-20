@@ -41,15 +41,21 @@ export default {
     background-color: rgba(0.1, 0.1, 0.1, 0.8);
 
     .cancel-modal-content {
-        border-radius: 20px;
+        min-width: 200px;
+        width: 100%;
         max-width: 400px;
-        height: 200px;
+        min-height: 150px;
+        height: 20%;
+        max-height: 250px;
         padding: 18px 32px;
         justify-content: space-around;
         align-items: center;
         background-color: #141625;
         color: #fff;
 
+        @media screen and (min-width: 400px) {
+            border-radius: 20px;
+        }
         p {
             text-align: center;
         }

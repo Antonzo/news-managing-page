@@ -54,19 +54,44 @@ export default {
 <style lang="scss" scoped>
 header {
     z-index: 100;
-    width: 100vw;
-    height: 60px;
+    width: 100%;
+    height: 45px;
     position: fixed;
     background-color: #141625;
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     align-items: center;
 
+    @media screen and (min-width: 500px) {
+        height: 55px;
+    }
+    @media screen and (min-width: 768px) {
+        height: 60px;
+        font-size: 1.2rem;
+    }
+    @media screen and (min-width: 1200px) {
+        height: 65px;
+        font-size: 1.25rem;
+    }
+
     .header-menu {
-        padding: 15px 40px;
-        gap: 16px;
+        padding: 10px 10px;
+        gap: 8px;
         align-items: center;
         
+        @media screen and (min-width: 500px) {
+            gap: 12px;
+            padding: 15px 20px;
+        }
+        @media screen and (min-width: 768px) {
+            gap: 15px;
+            padding: 15px 25px;
+        }
+        @media screen and (min-width: 1200px) {
+            gap: 18px;
+            padding: 15px 40px;
+        }
+
         .nav-link {
             text-decoration: none;
             color: #fff;
@@ -93,17 +118,43 @@ header {
 
                 img {
                     width: 15px;
-                    margin-left: 12px;
+                    margin-left: 5px;
+
+                    @media screen and (min-width: 500px) {
+                        width: 18px;
+                        margin-left: 8px;
+                    }
+                    @media screen and (min-width: 768px) {
+                        width: 21px;
+                        margin-left: 9px;
+                    }
+                    @media screen and (min-width: 1200px) {
+                        width: 24px;
+                        margin-left: 11px;
+                    }
                 }
             }
 
             .sorter-menu {
                 position: absolute;
-                top: 40px;
+                top: 35px;
                 width: 130px;
                 font-size: 1rem;
                 background-color: #141625;
                 box-shadow: 0 4px 6px -1px rbga(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+                @media screen and (min-width: 500px) {
+                    top: 40px;
+                    width: 140px;
+                }
+                @media screen and (min-width: 768px) {
+                    top: 45px;
+                    width: 150px;
+                }
+                @media screen and (min-width: 1200px) {
+                    top: 50px;
+                    width: 155px;
+                }
 
                 li {
                     padding: 10px 12px;

@@ -2,7 +2,7 @@
     <div @click="askCancel" ref="articleWrap" class="article-modal-wrap flex">
         <loading v-show="loading"/>
         <form @submit.prevent="publishArticle" class="article-modal-content flex flex-column">
-            <h4>article description</h4>
+            <h4>Article description</h4>
 
             <div class="flex flex-column">
                 <label for="articleTitle">Title</label>
@@ -11,10 +11,10 @@
 
             <div class="flex flex-column">
                 <label for="articleContent">Content</label>
-                <textarea required rows="20" maxlength="3000" id="articleContent" v-model="articleContent"/>
+                <textarea required maxlength="3000" id="articleContent" v-model="articleContent"/>
             </div>
             
-            <div class="buttons flex">
+            <div class="buttons bottom flex">
                 <button @click="closeModal" type="button" class="red">Cancel</button>
                 <button @click="saveDraft" type="button" class="right dark-purple">Save</button>
                 <button type="submit" class="purple">Publish</button>
@@ -125,43 +125,90 @@ export default {
 .article-modal-wrap {
     z-index: 100;
     position: fixed;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0.1, 0.1, 0.1, 0.3);
     justify-content: center;
     align-items: center;
 
-
     .article-modal-content {
         width: 800px;
-        height: 750px;
-        border-radius: 20px;
+        min-height: 400px;
         background-color: #141625;
         color: #fff;
 
+        @media screen and (min-width: 800px) {
+            border-radius: 20px;
+        }
         h4 {
             align-self: center;
-            margin: 10px 0;
+            margin-top: 5px;
             font-size: 1.15rem;
-        }
 
+            @media screen and (min-height: 600px) {
+                margin-top: 7px;
+                margin-bottom: 3px;
+            }
+            @media screen and (min-height: 800px) {
+                margin-top: 10px;
+                margin-bottom: 5px;
+            }
+            @media screen and (min-height: 1000px) {
+                margin-top: 15px;
+                margin-bottom: 8px;
+            }
+        }
         label {
-           margin: 10px 0 3px 10px; 
+            @media screen and (min-width: 360px) {
+                margin-left: 10px;
+            }
+            @media screen and (min-height: 600px) {
+                margin-top: 5px;
+            }
+            @media screen and (min-height: 800px) {
+                margin-top: 7px;
+                margin-bottom: 3px;
+            }
+            @media screen and (min-height: 1000px) {
+                margin-top: 10px;
+                margin-bottom: 5px;
+            }
         }
 
         input, textarea {
-            margin: 0 10px;
-            padding: 10px;
+            padding: 5px 0;
             resize: none;
             outline: none;
             border: none;
             background-color: #1e2139;
             color: #fff;
+            font-size: 1rem;
+
+            @media screen and (min-width: 360px) {
+                margin: 0 7px;
+                padding: 7px;
+            }
+            @media screen and (min-width: 500px) {
+                margin: 0 9px;
+                padding: 9px;
+            }
+            @media screen and (min-width: 768px) {
+                margin: 0 10px;
+                padding: 10px;
+            }
+            @media screen and (min-width: 1200px) {
+                margin: 0 11px;
+                padding: 11px;
+            }
+        }
+
+        textarea {
+            height: 60vh;
+            max-height: 500px;
         }
 
         .buttons {
-            margin: 0 10px;
-            margin-top: 20px;
+            margin: 10px 10px;
 
             button {
                 cursor: pointer;

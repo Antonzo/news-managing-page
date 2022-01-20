@@ -46,12 +46,34 @@ export default {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+html {
+  font-size: 13px;
+
+  @media screen and (min-width: 500px) {
+      font-size: 14px;
+  }
+  @media screen and (min-width: 768px) {
+      font-size: 16px;
+  }
+  @media screen and (min-width: 1200px) {
+      font-size: 17px;
+  }
+}
 #app {
   position: relative;
 }
 .page-content {
-  padding-top: 60px;
+  padding-top: 45px;
   min-height: 100vh;
+  @media screen and (min-width: 500px) {
+    padding-top: 55px;
+  }
+  @media screen and (min-width: 768px) {
+    padding-top: 60px;
+  }
+  @media screen and (min-width: 768px) {
+    padding-top: 65px;
+  }
 }
 ul {
   list-style-type: none;

@@ -75,10 +75,19 @@ export default {
     .article-content {
         align-items: center;
         background-color: #fff;
-        border-radius: 10px 10px 0 0;
-        width: 800px;
-        padding: 15px 25px;
+        max-width: 800px;
+        padding: 5px 10px;
         color: #141625;
+
+        @media screen and (min-width: 500px) {
+            padding: 5px 15px;
+        }
+        @media screen and (min-width: 768px) {
+            padding: 10px 20px;
+        }
+        @media screen and (min-width: 800px) {
+            border-radius: 10px 10px 0 0;
+        }
 
         .publish-date {
             align-self: flex-end;
@@ -105,8 +114,18 @@ export default {
             .info-sub-container {
                 gap: 2px;
                 img {
-                    width: 20px;
+                    width: 15px;
                     filter: invert(14%) sepia(3%) saturate(5117%) hue-rotate(314deg) brightness(90%) contrast(93%);
+                    
+                    @media screen and (min-width: 500px) {
+                        width: 16px;
+                    }
+                    @media screen and (min-width: 768px) {
+                        width: 18px;
+                    }
+                    @media screen and (min-width: 1200px) {
+                        width: 20px;
+                    }
                 }
             }
 
