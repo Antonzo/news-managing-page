@@ -1,32 +1,104 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+<div v-if="articlesUploaded" id="app">
+  <navigation/>
+  <article-modal v-if="modalActive"/>
+  <cancel-modal v-if="cancelActive"/>
+  <delete-modal v-if="deleteActive"/>
+  <router-view class="page-content"/>
+</div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import { mapState, mapActions } from "vuex"
+import Navigation from './components/Navigation.vue'
+import ArticleModal from './components/ArticleModal.vue'
+import CancelModal from './components/CancelModal.vue'
+import DeleteModal from './components/DeleteModal.vue'
 
-#nav {
-  padding: 30px;
+export default {
+  components: {
+    Navigation,
+    ArticleModal,
+    CancelModal,
+    DeleteModal
+  },
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+  computed: {
+    ...mapState(['modalActive', 'cancelActive', 'deleteActive', 'articlesUploaded'])
+  },
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  methods: {
+    ...mapActions(['GET_ARTICLES_DB'])
+  },
+
+  created() {
+    this.GET_ARTICLES_DB();
   }
 }
+</script>
+
+<style lang="scss">
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+#app {
+  position: relative;
+}
+.page-content {
+  padding-top: 60px;
+  min-height: 100vh;
+}
+ul {
+  list-style-type: none;
+}
+
+.flex {
+  display: flex;
+}
+.flex-column {
+  flex-direction: column;
+}
+
+.top {
+  margin-bottom: auto;
+}
+.right {
+  margin-left: auto;
+}
+.bottom {
+  margin-top: auto;
+}
+.left {
+  margin-right: auto;
+}
+
+.buttons {
+  .red {
+    background-color: #ec5757;
+  }
+
+  .purple {
+    background-color: #7c5dfa;
+  }
+
+  .dark-purple {
+    background-color: #252945;
+  }
+}
+
+
+::-moz-selection {
+  color: #fff;
+  background: #ec5757;
+}
+
+::selection {
+  color: #fff;
+  background: #ec5757;
+} 
 </style>
